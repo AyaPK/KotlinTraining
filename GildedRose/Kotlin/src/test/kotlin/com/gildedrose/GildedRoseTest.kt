@@ -26,7 +26,7 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun outOfDateQualityDegradation() {
+    fun outOfDateItemQualityGetsUpdatedTwiceAsFast() {
         val items = arrayOf<Item>(Item("foo", 0, 5))
         val app = GildedRose(items)
 
@@ -36,7 +36,7 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun qualityNeverNegative() {
+    fun qualityIsNeverNegative() {
         val items = arrayOf<Item>(Item("foo", 0, 1))
         val app = GildedRose(items)
 
@@ -56,7 +56,7 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun qualityNeverOverFifty() {
+    fun qualityNeverGoesOverFifty() {
         val items = arrayOf<Item>(Item("Aged Brie", 10, 45))
         val app = GildedRose(items)
 
@@ -79,9 +79,9 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun backstagePassesIncreaseByOne(){
-        var items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 15, 10))
-        var app = GildedRose(items)
+    fun backstagePassesIncreaseByOneWhenMoreThan10daysLeft(){
+        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 15, 10))
+        val app = GildedRose(items)
 
         app.updateQuality()
 
@@ -89,9 +89,9 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun backstagePassesIncreaseByTwo(){
-        var items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 8, 10))
-        var app = GildedRose(items)
+    fun backstagePassesIncreaseByTwoWhenLessThan10daysLeft(){
+        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 8, 10))
+        val app = GildedRose(items)
 
         app.updateQuality()
 
@@ -99,9 +99,9 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun backstagePassesIncreaseByThree(){
-        var items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 4, 10))
-        var app = GildedRose(items)
+    fun backstagePassesIncreaseByThreeWhenLessThan5daysLeft(){
+        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 4, 10))
+        val app = GildedRose(items)
 
         app.updateQuality()
 
@@ -109,16 +109,14 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun backstagePassesQualityDrops(){
-        var items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 0, 10))
-        var app = GildedRose(items)
+    fun backstagePassesQualityDropsToZeroAfterSellInHits0(){
+        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 0, 10))
+        val app = GildedRose(items)
 
         app.updateQuality()
 
         assertEquals(0, items[0].quality)
     }
 
-
 }
-
 
