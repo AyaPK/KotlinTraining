@@ -14,6 +14,7 @@ class BackstagePass(name:String, sellIn:Int, quality:Int) : Product(name, sellIn
         }
         else {
             this.quality = 0;
+            this.sellIn -= 1;
         }
     }
 }

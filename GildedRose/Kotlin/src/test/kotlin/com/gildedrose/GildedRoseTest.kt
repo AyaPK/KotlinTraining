@@ -69,13 +69,23 @@ internal class GildedRoseTest {
 
     @Test
     fun sulfurasNeverChanges() {
-        val items = arrayOf<Item>(Item("Sulfuras, Hand of Ragnaros", 5, 5))
+        val items = arrayOf<Item>(Item("Sulfuras, Hand of Ragnaros", 5, 80))
         val app = GildedRose(items)
 
         app.updateQuality()
 
         assertEquals(5, items[0].sellIn)
-        assertEquals(5, items[0].quality)
+        assertEquals(80, items[0].quality)
+    }
+
+    @Test
+    fun sulfurasQualityIsAlways80(){
+        val items = arrayOf<Item>(Item("Sulfuras, Hand of Ragnaros", 5, 30))
+        val app = GildedRose(items)
+
+        app.updateQuality()
+
+        assertEquals(80, items[0].quality)
     }
 
     @Test

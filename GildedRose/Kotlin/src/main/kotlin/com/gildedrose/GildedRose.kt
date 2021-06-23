@@ -22,7 +22,6 @@ class GildedRose(var items: Array<Item>) {
             item.key.quality = item.value.quality;
             item.key.sellIn = item.value.sellIn;
         }
-
     }
 }
 
