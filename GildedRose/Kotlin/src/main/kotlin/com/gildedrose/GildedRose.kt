@@ -2,29 +2,31 @@ package com.gildedrose
 
 class GildedRose(var items: Array<Item>) {
 
-    private var mappedItems:ArrayList<Product> = ArrayList<Product>();
+    private var mappedItems:HashMap<Item, Product> = HashMap<Item, Product>();
 
-    init {
-        for (i in items.indices){
-            if (items[i].name == "Aged Brie"){
-                mappedItems.add(AgedBrie(items[i].name, items[i].sellIn, items[i].quality));
-            } else if (items[i].name == "Sulfuras, Hand of Ragnaros") {
-                mappedItems.add(Sulfuras(items[i].name, items[i].sellIn, items[i].quality));
-            } else if (items[i].name == "Backstage passes to a TAFKAL80ETC concert") {
-                mappedItems.add(BackstagePass(items[i].name, items[i].sellIn, items[i].quality));
-            }
-            else {
-                mappedItems.add(Product(items[i].name, items[i].sellIn, items[i].quality));
-            }
-        }
-    }
 
     fun updateQuality() {
-        for (i in mappedItems.indices){
-            mappedItems[i].updateQuality();
-            items[i].quality = mappedItems[i].quality;
-            items[i].sellIn = mappedItems[i].sellIn;
+        for (item in items){
+            if (item !in mappedItems){
+                if (item.name == "Aged Brie"){
+                    mappedItems[item] = AgedBrie(item.name, item.sellIn, item.quality);
+                } else if (item.name == "Sulfuras, Hand of Ragnaros") {
+                    mappedItems[item] = Sulfuras(item.name, item.sellIn, item.quality);
+                } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
+                    mappedItems[item] = BackstagePass(item.name, item.sellIn, item.quality);
+                }
+                else {
+                    mappedItems[item] = Product(item.name, item.sellIn, item.quality);
+                }
+            }
         }
+
+        for (item in mappedItems){
+            item.value.updateQuality();
+            item.key.quality = item.value.quality;
+            item.key.sellIn = item.value.sellIn;
+        }
+
     }
 }
 
