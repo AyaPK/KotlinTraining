@@ -52,7 +52,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(7, app.items[0].quality)
+        assertEquals(7, app.items[0].quality)const items = gildedRose.updateQuality();
     }
 
     @Test
