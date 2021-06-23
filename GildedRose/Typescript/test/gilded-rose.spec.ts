@@ -1,4 +1,4 @@
-import { expect } from 'chai';4
+import { expect } from 'chai';
 import { Item, GildedRose } from '../app/gilded-rose';
 
 describe('Gilded Rose', function () {
