@@ -32,7 +32,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(3, items[0].quality)
+        assertEquals(3, app.items[0].quality)
     }
 
     @Test
@@ -42,7 +42,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(0, items[0].quality)
+        assertEquals(0, app.items[0].quality)
     }
 
     @Test
@@ -52,7 +52,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(7, items[0].quality)
+        assertEquals(7, app.items[0].quality)
     }
 
     @Test
@@ -64,7 +64,7 @@ internal class GildedRoseTest {
             app.updateQuality()
         }
 
-        assertEquals(50, items[0].quality)
+        assertEquals(50, app.items[0].quality)
     }
 
     @Test
@@ -74,8 +74,8 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(5, items[0].sellIn)
-        assertEquals(80, items[0].quality)
+        assertEquals(5, app.items[0].sellIn)
+        assertEquals(80, app.items[0].quality)
     }
 
     @Test
@@ -85,7 +85,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(80, items[0].quality)
+        assertEquals(80, app.items[0].quality)
     }
 
     @Test
@@ -95,7 +95,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(11, items[0].quality)
+        assertEquals(11, app.items[0].quality)
     }
 
     @Test
@@ -105,7 +105,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(12, items[0].quality)
+        assertEquals(12, app.items[0].quality)
     }
 
     @Test
@@ -115,7 +115,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(13, items[0].quality)
+        assertEquals(13, app.items[0].quality)
     }
 
     @Test
@@ -125,7 +125,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(0, items[0].quality)
+        assertEquals(0, app.items[0].quality)
     }
 
     @Test
@@ -135,7 +135,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(8, items[0].quality)
+        assertEquals(8, app.items[0].quality)
     }
 
     @Test
@@ -145,7 +145,7 @@ internal class GildedRoseTest {
 
         app.updateQuality()
 
-        assertEquals(6, items[0].quality)
+        assertEquals(6, app.items[0].quality)
     }
 
 }
