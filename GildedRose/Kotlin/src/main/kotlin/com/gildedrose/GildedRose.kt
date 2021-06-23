@@ -4,19 +4,15 @@ class GildedRose(var items: Array<Item>) {
 
     private var mappedItems:HashMap<Item, Product> = HashMap<Item, Product>();
 
-
     fun updateQuality() {
-        for (item in items){
+        for (item in items) {
             if (item !in mappedItems){
-                if (item.name == "Aged Brie"){
-                    mappedItems[item] = AgedBrie(item.name, item.sellIn, item.quality);
-                } else if (item.name == "Sulfuras, Hand of Ragnaros") {
-                    mappedItems[item] = Sulfuras(item.name, item.sellIn, item.quality);
-                } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-                    mappedItems[item] = BackstagePass(item.name, item.sellIn, item.quality);
-                }
-                else {
-                    mappedItems[item] = Product(item.name, item.sellIn, item.quality);
+                mappedItems[item] = when (item.name) {
+                    "Aged Brie" -> AgedBrie(item.name, item.sellIn, item.quality)
+                    "Sulfuras, Hand of Ragnaros" -> Sulfuras(item.name, item.sellIn, item.quality)
+                    "Backstage passes to a TAFKAL80ETC concert" -> BackstagePass(item.name, item.sellIn, item.quality)
+                    "Conjured Mana Cake" -> Conjured(item.name, item.sellIn, item.quality)
+                    else -> Product(item.name, item.sellIn, item.quality)
                 }
             }
         }

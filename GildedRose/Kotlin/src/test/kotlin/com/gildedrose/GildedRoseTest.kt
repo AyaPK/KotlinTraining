@@ -89,8 +89,8 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun backstagePassesIncreaseByTwoWhenLessThan10daysLeft(){
-        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 8, 10))
+    fun backstagePassesIncreaseByTwoWhen10orLessdaysLeft(){
+        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 10, 10))
         val app = GildedRose(items)
 
         app.updateQuality()
@@ -99,8 +99,8 @@ internal class GildedRoseTest {
     }
 
     @Test
-    fun backstagePassesIncreaseByThreeWhenLessThan5daysLeft(){
-        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 4, 10))
+    fun backstagePassesIncreaseByThreeWhen5orLessdaysLeft(){
+        val items = arrayOf<Item>(Item("Backstage passes to a TAFKAL80ETC concert", 5, 10))
         val app = GildedRose(items)
 
         app.updateQuality()
@@ -116,6 +116,26 @@ internal class GildedRoseTest {
         app.updateQuality()
 
         assertEquals(0, items[0].quality)
+    }
+
+    @Test
+    fun conjuredItemsDegradeBy2WhenWithinSellInTime(){
+        val items = arrayOf<Item>(Item("Conjured Mana Cake", 10, 10))
+        val app = GildedRose(items)
+
+        app.updateQuality()
+
+        assertEquals(8, items[0].quality)
+    }
+
+    @Test
+    fun conjuredItemsDegradeBy4WhenOutOfSellInTime(){
+        val items = arrayOf<Item>(Item("Conjured Mana Cake", 0, 10))
+        val app = GildedRose(items)
+
+        app.updateQuality()
+
+        assertEquals(6, items[0].quality)
     }
 
 }
