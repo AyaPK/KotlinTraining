@@ -51,25 +51,25 @@ describe('Gilded Rose', function () {
         expect(items[0].sellIn).to.equal(10);
     });
 
-    it('Backstage pass increases by 1 when there is more than 10 days left', function() {
+    it('Backstage pass should increase by 1 when there is more than 10 days left', function() {
         const gildedRose = new GildedRose([ new Item('Backstage passes to a TAFKAL80ETC concert', 11, 1) ]);
         const items = gildedRose.updateQuality();
         expect(items[0].quality).to.equal(2);
     });
 
-    it('Backstage pass increases by 2 when there is 10 or less days left', function() {
+    it('Backstage pass should increase by 2 when there is 10 or less days left', function() {
         const gildedRose = new GildedRose([ new Item('Backstage passes to a TAFKAL80ETC concert', 10, 1) ]);
         const items = gildedRose.updateQuality();
         expect(items[0].quality).to.equal(3);
     });
 
-    it('Backstage pass increases by 3 when there is 5 or less days left', function() {
+    it('Backstage pass should increase by 3 when there is 5 or less days left', function() {
         const gildedRose = new GildedRose([ new Item('Backstage passes to a TAFKAL80ETC concert', 5, 1) ]);
         const items = gildedRose.updateQuality();
         expect(items[0].quality).to.equal(4);
     });
 
-    it('Backstage pass quality becomes 0 if sellIn in 0', function() {
+    it('Backstage pass quality should become 0 if sellIn in 0', function() {
         const gildedRose = new GildedRose([ new Item('Backstage passes to a TAFKAL80ETC concert', 0, 1) ]);
         const items = gildedRose.updateQuality();
         expect(items[0].quality).to.equal(0);
