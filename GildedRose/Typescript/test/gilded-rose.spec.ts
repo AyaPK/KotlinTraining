@@ -38,7 +38,7 @@ describe('Gilded Rose', function () {
         
         var items = gildedRose.updateQuality();
         for (var x:number = 0; x < 10; x++){
-            gildedRose.updateQuality();
+            items = gildedRose.updateQuality();
         }
 
         expect(items[0].quality).to.equal(50);
