@@ -1,5 +1,3 @@
-
-
 export class Item {
     name: string;
     sellIn: number;
@@ -72,8 +70,6 @@ export class BackstagePass extends Item {
         } else {
             this.quality = 0;
         }
-
-
 
         if (this.quality < 0){
             this.quality = 0;
