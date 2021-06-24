@@ -92,11 +92,7 @@ export class GildedRose {
     }
 
     updateQuality() : Array<Item> {
-        var mappedItems = Array<Item>();
-        this.items.forEach(i => {
-            mappedItems.push(this.qualityUpdater(i))
-        })
-        this.items = mappedItems;
+        this.items = this.items.map(item => { return this.qualityUpdater(item)})
         return this.items;
     }
 
@@ -115,7 +111,6 @@ export class GildedRose {
                 var mutatedItem = new Product(item.name, item.sellIn, item.quality);
                 break;
         }
-        
         mutatedItem.updateQuality();
         return mutatedItem;
     }
